@@ -2471,6 +2471,7 @@ class TracyDebugger extends WireData implements Module, ConfigurableModule {
                 return $checkIpAddress['ipAddressAllowed'] ? 'development' : false;
             }
             elseif($u->hasPermission('tracy-debugger')) {
+                if(static::$isLocal) self::$validLocalUser = true;
                 return 'development';
             }
             else {
